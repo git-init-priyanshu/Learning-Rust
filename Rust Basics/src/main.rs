@@ -54,4 +54,20 @@ fn main() {
 
     let c = (a as i64) / b; // a is typecasted as i64
     println!("c is: {}", c);
+
+    let number = {
+        let x = 3;
+        x+1 //No semicolon(Kinda unintuitive), It returns the value to the variable
+    };
+    println!("Printing weird expression,{}",number);
+    
+    let sum: i32 = add_numbers(1, 2);
+
+    println!("Sum of the numbers from function is: {}", sum);
+
+}
+
+fn add_numbers(x: i32, y:i32) -> i32 {
+    return x+y; // Return statement
+    // x+y // Another way to return (No semicolon)
 }
