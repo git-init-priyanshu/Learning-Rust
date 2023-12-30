@@ -1,3 +1,5 @@
+use std::num;
+
 fn main() {
     let x = 1; //Implicitly assigning the variable
     let y: u32 = 2; //Explicitly assigning the variable
@@ -64,7 +66,60 @@ fn main() {
     let sum: i32 = add_numbers(1, 2);
 
     println!("Sum of the numbers from function is: {}", sum);
+    
+    // Structs
+    struct User{
+        username: String,
+        email: String,
+        password: String,
+        is_active: bool,
+        sign_in_count: u32,
+    }
+    let mut user1: User = User { username: String::from("user1"),
+                             email: String::from("user1@email.com"),
+                             password: String::from("Pass@123"),
+                             is_active: false,
+                             sign_in_count: 1
+                            };
+    println!("username: {}",user1.username);
+    println!("email: {}",user1.email);
+    println!("password: {}",user1.password);
+    println!("is_active: {}",user1.is_active);
+    println!("sign_in_count: {}",user1.sign_in_count);
 
+    user1.username = String::from("NewUserName");
+    println!("New username: {}", user1.username);
+
+    let user2 = User{
+        username: String::from("user2"),
+        email: String::from("user2@mail.com"),
+        ..user1
+    };
+
+    println!("username: {}",user2.username);
+    println!("email: {}",user2.email);
+    println!("password: {}",user2.password);
+    println!("is_active: {}",user2.is_active);
+    println!("sign_in_count: {}",user2.sign_in_count);
+
+    let rect: Rectangle = Rectangle{
+        width: 30,
+        height: 40
+    };
+    println!("rect: {:#?}", rect);
+    println!("Area of rectangle: {}", rect.area());
+}
+
+// Struct Implementation
+#[derive(Debug)]
+struct Rectangle{
+    width: u32,
+    height: u32
+}
+impl Rectangle {
+   fn area(&self) -> u32{
+        return &self.width * &self.height
+   }
 }
 
 fn add_numbers(x: i32, y:i32) -> i32 {
