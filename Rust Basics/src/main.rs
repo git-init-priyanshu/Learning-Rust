@@ -1,9 +1,6 @@
 mod data_types;
 use data_types::data_types;
 
-mod collections;
-use collections::collections;
-
 fn main() {
     let x = 1; //Implicitly assigning the variable
     let y: u32 = 2; //Explicitly assigning the variable
@@ -46,7 +43,6 @@ fn main() {
     println!("Sum of the numbers from function is: {}", sum);
 
     data_types();
-    collections();
 }
 
 fn add_numbers(x: i32, y: i32) -> i32 {
